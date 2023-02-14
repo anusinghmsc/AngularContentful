@@ -9,9 +9,9 @@ import { BrandOverviewComponent } from './brand-overview/brand-overview.componen
 import { MdToHtmlPipe } from './md-to-html.pipe';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/brands', pathMatch: 'full'},
-  { path: 'brands', component: BrandListComponent},
-  { path: 'brand/:id', component: BrandOverviewComponent }
+  { path: '', redirectTo: '/brands', pathMatch: 'full' },
+  { path: 'brands', component: BrandListComponent },
+  { path: 'brand/:id', component: BrandOverviewComponent },
 ];
 
 @NgModule({
@@ -19,13 +19,10 @@ const routes: Routes = [
     AppComponent,
     BrandListComponent,
     BrandOverviewComponent,
-    MdToHtmlPipe
+    MdToHtmlPipe,
   ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(routes)
-  ],
+  imports: [BrowserModule, RouterModule.forRoot(routes)],
   providers: [ContentfulService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
