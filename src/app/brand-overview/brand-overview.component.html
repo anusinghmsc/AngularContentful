@@ -1,0 +1,14 @@
+<div *ngIf="brand.fields">
+    <h2>
+      <a href="{{ brand.fields.url }}" target="_blank">
+        <img width="40%" style="margin: 10px" class="float-right rounded" src="{{ brand.fields.image.fields.file.url }}"/>
+      </a>
+    </h2>
+    <div [innerHTML]="brand.fields.info | mdToHtml"></div>
+    <br>
+    <div [innerHTML]="brand.fields.overview | mdToHtml"></div>
+    <br>
+    <a href="{{ brand.fields.url }}" target="_blank" class="btn btn-success">Go To Brand</a>
+    <button (click)="goToList()" class="btn btn-danger">Back To List</button>
+    <br><br>
+  </div>
