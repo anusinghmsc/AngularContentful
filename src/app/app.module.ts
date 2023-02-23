@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { ContentfulService } from './contentful.service';
 import { BrandListComponent } from './brand-list/brand-list.component';
 import { BrandOverviewComponent } from './brand-overview/brand-overview.component';
-import { MdToHtmlPipe } from './md-to-html.pipe';
 
 const routes: Routes = [
+  // redirect from http://localhost:4200 to http://localhost:4200/brands
   { path: '', redirectTo: '/brands', pathMatch: 'full' },
+  // show BrandListComponent page for url as http://localhost:4200/brands 
   { path: 'brands', component: BrandListComponent },
+  // show BrandOverviewComponent page for url as http://localhost:4200/brand/3xcThESR49ZKEUfL8dyMq1
   { path: 'brand/:id', component: BrandOverviewComponent },
 ];
 
@@ -19,10 +21,9 @@ const routes: Routes = [
     AppComponent,
     BrandListComponent,
     BrandOverviewComponent,
-    MdToHtmlPipe,
   ],
   imports: [BrowserModule, RouterModule.forRoot(routes)],
-  providers: [ContentfulService],
+  providers: [ContentfulService], // load the service
   bootstrap: [AppComponent],
 })
 export class AppModule {}
