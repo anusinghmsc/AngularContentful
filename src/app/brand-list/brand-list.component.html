@@ -1,7 +1,7 @@
 <div>
   <div class="alert alert-info" role="alert" *ngFor="let brand of brands">
-    <div class="d-flex flex-wrap flex-xl-nowrap flex-lg-nowrap flex-md-nowrap">
-      <div class="p-2">
+    <div class="d-grid gap-2">
+      <div>
         <a href="{{ brand.fields.url }}" target="_blank"
           ><img
             src="{{ brand.fields.image.fields.file.url }}"
@@ -9,7 +9,7 @@
             width="196"
         /></a>
       </div>
-      <div class="p-2">
+      <div>
         <h5 class="alert-heading">
           <a href="{{ brand.fields.url }}" target="_blank">{{
             brand.fields.name
