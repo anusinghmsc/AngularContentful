@@ -23,6 +23,7 @@ export class BrandOverviewComponent implements OnInit {
     // where id is 3xcThESR49ZKEUfL8dyMq1
     const brandId = this.route.snapshot.paramMap.get('id');
 
+    // here we are consuming the data from promise returned by Contentful Service function
     this.contentfulService.getBrand(brandId).then((brand) => {
       this.brand = brand; // initialize value of brand
     });

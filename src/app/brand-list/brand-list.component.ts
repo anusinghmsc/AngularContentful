@@ -21,6 +21,8 @@ export class BrandListComponent implements OnInit {
   ngOnInit() {
     // get all the brands from Contentful and assign to brands variable 
     // using getBrands() function from Contentful Service
+
+    // here we are consuming the data from promise returned by Contentful Service function
     this.contentfulService.getBrands().then((brands) => (this.brands = brands));
   }
 
