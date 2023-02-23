@@ -11,6 +11,7 @@ export class ContentfulService {
 
   constructor() {}
 
+  //get list of brands from contentful
   getBrands(query?: object): Promise<Entry<any>[]> {
     return this.client
       .getEntries(
@@ -24,6 +25,7 @@ export class ContentfulService {
       .then((res) => res.items);
   }
 
+  // get value for brand using id from contentful
   getBrand(brandId: any): Promise<Entry<any>> {
     return this.client
       .getEntries(
