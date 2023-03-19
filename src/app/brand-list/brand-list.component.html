@@ -1,31 +1,35 @@
 <div>
-  <div class="alert alert-info" role="alert" *ngFor="let brand of brands">
-    <div class="d-grid gap-2">
-      <div>
-        <a href="{{ brand.fields.url }}" target="_blank"
-          ><img
-            src="{{ brand.fields.image.fields.file.url }}"
-            class="rounded"
-            width="196"
-        /></a>
+  <div class="card-group">
+    <div class="card" *ngFor="let brand of brands">
+      <div class="card-body btn" (click)="updateSelection(brand.sys.id)"
+        [ngClass]="isSelected(brand.sys.id)? 'bg-success text-white':'bg-secondary text-white'">
+        <h3>
+          {{brand.fields.name}}
+        </h3>
       </div>
-      <div>
-        <h5 class="alert-heading">
-          <a href="{{ brand.fields.url }}" target="_blank">{{
-            brand.fields.name
-          }}</a>
-        </h5>
-        <div [innerHTML]="brand.fields.info"></div>
-        <br />
-        <a href="{{ brand.fields.url }}" target="_blank" class="btn btn-success"
-          >Go To Brand</a
-        >
-        <button
-          (click)="goToBrandOverviewPage(brand.sys.id)"
-          class="btn btn-info"
-        >
-          Brand Overview
-        </button>
+    </div>
+  </div>
+  <br>
+  <div *ngFor="let brand of brands">
+    <div *ngIf="isSelected(brand.sys.id)" class="alert alert-info" role="alert">
+      <div class="d-grid gap-2">
+        <div>
+          <a href="{{ brand.fields.url }}" target="_blank"><img src="{{ brand.fields.image.fields.file.url }}"
+              class="rounded" width="196" /></a>
+        </div>
+        <div>
+          <h5 class="alert-heading">
+            <a href="{{ brand.fields.url }}" target="_blank">{{
+              brand.fields.name
+              }}</a>
+          </h5>
+          <div [innerHTML]="brand.fields.info"></div>
+          <br />
+          <a href="{{ brand.fields.url }}" target="_blank" class="btn btn-success">Go To Brand</a>
+          <button (click)="goToBrandOverviewPage(brand.sys.id)" class="btn btn-info">
+            Brand Overview
+          </button>
+        </div>
       </div>
     </div>
   </div>
